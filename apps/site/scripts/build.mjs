@@ -30,6 +30,7 @@ const DOC_SLUGS = [
   "architecture-notes",
   "deploy",
   "design-system",
+  "github-action-deploy",
   "maintenance",
   "memos-compatibility",
   "memos-ecosystem",

@@ -42,6 +42,10 @@ const enAgentMemory: RawDocLoader = () =>
   );
 const enDeploy: RawDocLoader = () =>
   import("../../../../docs/en/deploy.md?raw").then((module) => module.default);
+const enGithubActionDeploy: RawDocLoader = () =>
+  import("../../../../docs/en/github-action-deploy.md?raw").then(
+    (module) => module.default,
+  );
 const enMemosCompatibility: RawDocLoader = () =>
   import("../../../../docs/en/memos-compatibility.md?raw").then(
     (module) => module.default,
@@ -54,6 +58,10 @@ const enTeamMode: RawDocLoader = () =>
   );
 const enUpdate: RawDocLoader = () =>
   import("../../../../docs/en/update.md?raw").then((module) => module.default);
+const githubActionDeploy: RawDocLoader = () =>
+  import("../../../../docs/github-action-deploy.md?raw").then(
+    (module) => module.default,
+  );
 const maintenance: RawDocLoader = () =>
   import("../../../../docs/maintenance.md?raw").then(
     (module) => module.default,
@@ -149,6 +157,11 @@ const ZH_DOCS: Record<
     group: "concept",
     body: designSystem,
   },
+  "github-action-deploy": {
+    title: "用 GitHub Action 部署",
+    group: "start",
+    body: githubActionDeploy,
+  },
   maintenance: {
     title: "维护手册",
     group: "start",
@@ -214,6 +227,11 @@ const EN_DOCS: Record<
     title: "Deploying FlareMo",
     group: "start",
     body: enDeploy,
+  },
+  "github-action-deploy": {
+    title: "Deploy with GitHub Actions",
+    group: "start",
+    body: enGithubActionDeploy,
   },
   "agent-deploy": {
     title: "Agent Deployment Runbook",
@@ -316,6 +334,8 @@ const DESCRIPTIONS_ZH: Record<string, string> = {
   deploy: "Agent 部署、手动部署两种路径，以及预部署清单。",
   "design-system":
     "Ember 设计语言：暖调中性 + 火焰品牌色，圆角、阴影与文案规则。",
+  "github-action-deploy":
+    "用自建部署仓库的受控 workflow_dispatch 发布，只应手动触发。",
   maintenance: "运维手册：备份、灾备演练、迁移、回滚。",
   "memos-compatibility": "/api/v1 子集与四类 memo 事件的 webhook outbox 边界。",
   "memos-ecosystem": "已验证的 Memos 第三方客户端与配置示例。",
@@ -336,6 +356,8 @@ const DESCRIPTIONS_EN: Record<string, string> = {
     "Agent deployment and manual deployment, plus a pre-deploy checklist.",
   "agent-deploy":
     "Runbook for command-capable agents (Codex, Claude Code, Cursor, ...).",
+  "github-action-deploy":
+    "Publishing from your own deployment repository via a manually triggered workflow_dispatch.",
   "memos-compatibility":
     "The /api/v1 subset and the four memo-event webhook outbox boundaries.",
   update: "Upgrading FlareMo: upstream sync workflow, PR flow, and rollbacks.",
